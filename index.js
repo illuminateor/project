@@ -10,7 +10,6 @@ mongoose.connect(config.uri, { useMongoClient: true },(err)=>{
     if(err){
         console.log('Could not connect to database ', err);
     } else {
-        console.log(config.secret);
         console.log('Connected to database: ' + config.db)
 }});
 
