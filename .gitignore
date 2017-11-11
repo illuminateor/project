@@ -5,8 +5,6 @@
 .idea/inspectionProfiles/
 client/
 =======
-.gitignore
-.idea/inspectionProfiles/
 >>>>>>> server-setup
 node_modules/
 package-lock.json
