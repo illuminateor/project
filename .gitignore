@@ -2,8 +2,6 @@
 <<<<<<< HEAD
 .idea
 .gitignore
-.idea/inspectionProfiles/
-client/
 =======
 >>>>>>> server-setup
 node_modules/
