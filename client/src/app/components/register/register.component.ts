@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   usernameValid;
   usernameMessage;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router:Router) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     this.createForm();
   }
 

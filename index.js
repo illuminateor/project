@@ -5,6 +5,7 @@ const mongoose = require('mongoose'); // Node Tool for MongoDB
 const config = require('./config/database'); // Mongoose Config
 const path = require('path'); // NodeJS Package for file paths
 const authentication = require('./routes/authentication')(router);
+const blogs = require('./routes/blog')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended:false }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/client/dist/'));
 app.use('/authentication',authentication);
+app.use('/blogs', blogs);
 
 // Connect server to Angular 4 index.html
 app.get('*', (req, res) => {

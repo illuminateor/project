@@ -1,12 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {tokenNotExpired} from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
 
-  domain = 'http://localhost:3000';
+  domain = 'http://localhost:3000/';
   authToken;
   user;
   options;
@@ -18,7 +17,6 @@ export class AuthService {
     this.loadToken();
     this.options = new RequestOptions({
       headers: new Headers({
-        // 'Access-Control-Allow-Method': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
         'Content-Type': 'application/json',
         'authorization': this.authToken
       })
@@ -30,23 +28,23 @@ export class AuthService {
   }
 
   registerUser(user) {
-    return this.http.post(this.domain + '/authentication/register', user).map(res => res.json());
+    return this.http.post(this.domain + 'authentication/register', user).map(res => res.json());
   }
 
   checkUsername(username) {
     if (username) {
-      return this.http.get(this.domain + '/authentication/checkUsername/' + username).map(res => res.json());
+      return this.http.get(this.domain + 'authentication/checkUsername/' + username).map(res => res.json());
     }
   }
 
   checkEmail(email) {
     if (email) {
-      return this.http.get(this.domain + '/authentication/checkEmail/' + email).map(res => res.json());
+      return this.http.get(this.domain + 'authentication/checkEmail/' + email).map(res => res.json());
     }
   }
 
   login(user) {
-    return this.http.post(this.domain + '/authentication/login', user).map(res => res.json());
+    return this.http.post(this.domain + 'authentication/login', user).map(res => res.json());
   }
 
   logout() {
@@ -64,12 +62,17 @@ export class AuthService {
 
   getProfile() {
     this.createAuthenticationHeaders();
-    return this.http.get(this.domain + '/authentication/profile', this.options).map(res => res.json());
+    return this.http.get(this.domain + 'authentication/profile', this.options).map(res => res.json());
   }
 
 
   loggedIn() {
-    return tokenNotExpired();
+    const token = localStorage.getItem('token');
+    if (typeof token !== 'undefined' && token !== null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
