@@ -5,7 +5,7 @@ const mongoose = require('mongoose'); // Node Tool for MongoDB
 const config = require('./config/database'); // Mongoose Config
 const path = require('path'); // NodeJS Package for file paths
 const authentication = require('./routes/authentication')(router);
-const blogs = require('./routes/blog')(router);
+const blogs = require('./routes/blogs')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
