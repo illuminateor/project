@@ -1,9 +1,0 @@
-# Created by .ignore support plugin (hsz.mobi)
-<<<<<<< HEAD
-.idea
-.gitignore
-=======
->>>>>>> server-setup
-node_modules/
-package-lock.json
-package.json
