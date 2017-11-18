@@ -8,6 +8,7 @@ const authentication = require('./routes/authentication')(router);
 const blogs = require('./routes/blogs')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const port = process.env.PORT || 3000;
 
 // Database connection
 mongoose.Promise = global.Promise;
@@ -37,6 +38,6 @@ app.get('*', (req, res) => {
 });
 
 // Start Server: Listen on port 3000
-app.listen(3000, () => {
-    console.log('Listening on port 3000')
+app.listen(port, () => {
+    console.log('Listening on port ' + port)
 });

@@ -1,9 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
-import {FlashMessagesModule} from 'angular2-flash-messages';
 import {FormsModule} from '@angular/forms';
-
+import {FlashMessagesModule} from 'angular2-flash-messages';
 import {AuthService} from './services/auth.service';
 import {BlogService} from './services/blog.service';
 
